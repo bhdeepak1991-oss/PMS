@@ -1,0 +1,12 @@
+﻿@* <ul>
+    @foreach (var data in Model.GroupBy(x=>x.ModuleName))
+    {
+        <li class="@data.First().IconClass">
+            <a data-title="@data.First().ModuleName" asp-controller="@data.First().ControllerName" asp-action="@data.First().ActionName" id="@data.First().ModuleName">
+                <span>@data.First().ModuleName  </span>
+            </a>
+        </li>
+    }
+</ul> *@
+
+

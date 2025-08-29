@@ -1,0 +1,87 @@
+﻿<div class="header-search">
+    <div class="search-adv"><a href="javascript:void(0)" class="advSearch"><span>Advanced</span> Search</a></div>
+    <div class="header-search-wrap">
+        <div class="search-inner" id="dvSearchAdvance">
+            <div class="search-fields">
+                <div id="claimSearch">
+                    <div class="search-field">
+                        <input type="text" class="form-control w200 masterSearch" maxlength="60" id="txtPharmacyID" placeholder="Pharmacy Id (NABP)">
+                    </div>
+                    <div class="search-field">
+                        <input type="text" class="form-control w150 masterSearch" maxlength="60" id="txtRxNumber" placeholder="Rx#">
+                    </div>
+                    <div class="search-field">
+                        <input type="text" class="form-control w150 masterSearch date" readonly="readonly" maxlength="60" id="txtDateOfService" placeholder="Date of Service">
+                    </div>
+                    <div class="search-field">
+                        <input type="text" class="form-control w150 masterSearch" maxlength="60" id="txtNDC" placeholder="NDC (Drug Id)">
+                    </div>
+                    <div class="search-field">
+                        <input type="text" class="form-control w200 masterSearch" maxlength="60" id="txtNPI" placeholder="NPI (National Provider Identifier)">
+                    </div>
+                    <div class="search-field">
+                        <input type="text" class="form-control w150 masterSearch" maxlength="60" id="txtGroup" placeholder="Group">
+                    </div>
+                    <div class="search-field">
+                        <input type="text" class="form-control w150 masterSearch" maxlength="60" id="txtCardHolderId" placeholder="Card Holder Id">
+                    </div>
+                    <div class="search-field">
+                        <input type="text" class="form-control w150 masterSearch" maxlength="60" id="txtGPI" placeholder="GPI">
+                    </div>
+                </div>
+                <div id="clilentSearch" style="display: none">
+                    <div class="search-field">
+                        <input type="text" class="form-control singleField masterSearch" maxlength="60" id="txtClientName" placeholder="Client (NABP)">
+                    </div>
+                </div>
+                <div id="planSearch"  style="display: none">
+                    <div class="search-field">
+                        <input type="text" class="form-control singleField masterSearch" maxlength="60" id="txtPlan" placeholder="Plan">
+                    </div>
+                </div>
+                <div id="formularySearch" style="display: none">
+                    <div class="search-field">
+                        <input type="text" class="form-control singleField masterSearch" maxlength="60" id="txtFormulaury" placeholder="Formulary">
+                    </div>
+                </div>
+                <div id="maxDrugList" style="display: none">
+                    <div class="search-field">
+                        <input type="text" class="form-control singleField masterSearch" maxlength="60" id="txtMacDrug" placeholder="MAC Drug List">
+                    </div>
+                </div>
+                <div id="drugList" style="display: none">
+                    <div class="search-field">
+                        <input type="text" class="form-control singleField masterSearch" maxlength="60" id="txtDrug" placeholder="Drug List">
+                    </div>
+                </div>
+                <div id="drugNDC" style="display: none">
+                    <div class="search-field">
+                        <input type="text" class="form-control singleField masterSearch" maxlength="60" id="txtDrugNdc" placeholder="Drug NDC">
+                    </div>
+                </div>
+            </div>
+
+            <div class="search-actions">
+                <div class="search-field btns">
+                    <input type="button" value="Go" onclick="MasterAdvanceSearch()" class="searchBtn masterSearchBtn clsGo">
+                    <button type="button" onclick="ClearHeaderData()" class="resetBtn">Clear</button>
+                </div>
+
+                <div class="search-field">
+                    <div class="search-type">
+                        <button class="label" id="lblSearchParams">Claim</button>
+                        <ul id="list">
+                            <li><a href="javascript:void(0)" onclick="GetSelectedSearchParam('claim')">Claim</a></li>
+                            <li><a href="javascript:void(0)" onclick="GetSelectedSearchParam('client')">Client</a></li>
+                            <li><a href="javascript:void(0)" onclick="GetSelectedSearchParam('plan')">Plan</a></li>
+                            <li><a href="javascript:void(0)" onclick="GetSelectedSearchParam('formulary')">Formulary</a></li>
+                            <li><a href="javascript:void(0)" onclick="GetSelectedSearchParam('mac')">MAC Drug List</a></li>
+                            <li><a href="javascript:void(0)" onclick="GetSelectedSearchParam('drug')">Drug List</a></li>
+                            <li><a href="javascript:void(0)" onclick="GetSelectedSearchParam('drugNDC')">Drug NDC</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
