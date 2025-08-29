@@ -1,49 +1,176 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+﻿@* @using Microsoft.AspNetCore.Http
+@using THS.Comman
+@inject IHttpContextAccessor HttpContextAccessor
+@{
+    var identity = HttpContextAccessor.HttpContext.User.Identities;
+    var userDetail = string.Empty;
+    identity.First().Claims.ToList().ForEach(x =>
+    {
+        userDetail = x.Value;
+    });
+    var objectJson = HttpContextAccessor.HttpContext.Session.ObjectFromSession<List<THS.Core.Entities.UserManagement.UserAccessRight>>("userAccess");
+    var isDisplayUserManagement = false;
+    var isDashboardAccess = false;
+    if(objectJson.Any(x=>x.ControllerName.ToLower().Trim()== "userdetail"))
+    {
+        isDisplayUserManagement = true;
+    }
+    //check is user has access Dashboard
+    if(objectJson.Any(x=>x.ControllerName.ToLower().Trim()=="dashboard"))
+    {
+        isDashboardAccess = true;
+    }
+} *@
+<!DOCTYPE html>
+<html>
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - ProjectManagementSystem</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/ProjectManagementSystem.styles.css" asp-append-version="true" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>@ViewData["Title"]</title>
+    <link rel="shortcut icon" type="image/png" href="~/images/logo.png" />
+    <link rel="stylesheet" href="~/css/style.css" />
+    <link href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <link href="~/css/AlertConfirm.css" rel="stylesheet" />
+
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ProjectManagementSystem</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
+    <section class="main-wrap ajaxLoading" id="mainWrap">
+        <header class="header">
+            <div class="header-left">
+                <figure class="logo">
+                    @if (true)
+                    {
+                        <a asp-controller="DashBoard" asp-action="Index">
+                            <img src="~/images/PharmacyLogo.png" />
+                        </a>
+                    }
+                    else
+                    {
+                        <a href="#">
+                            <img src="~/images/PharmacyLogo.png" />
+                        </a>
+                    }
+
+                </figure>
+                <nav class="main-nav">
+                    <label class="nav-item">
+                        <span class="nav-ico beforeIco" id="spanModuleIcon"></span>
+                        <span class="nav-text" id="aCurrentModuleName">@ViewBag.CurrentModuleName</span>
+                    </label>
+                </nav>
+            </div>
+            <div class="header-right">
+               @*  @await Html.PartialAsync(Views._headerSearchPartial) *@
+                <div class="user-block">
+                    <div class="user-action">
+                        <button type="button" class="btn profile"><img src="~/images/profile-placeholder.png" class="profileImg" style="background-image:url(../../images/profile.jpg)" /></button>
+                        <ul class="dropdown-menu">
+                            <li><label class="clearMenuLocalStrg userName">Welcome <span>Admin</span></label></li>
+                            <li><a href="javascript:void(0)" onclick="OpenChangePasswordPartial()" class="password">Change Password<em></em></a></li>
+                            <li><a class="logout" asp-action="LogOut" asp-controller="Authenticate">Log Out</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="user-action">
+                        <button type="button" class="btn">
+                            <span class="navCaret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            @if (true)
+                            {
+                                <li><a asp-action="Index" asp-controller="UserDetail" class="admin">User Management <em></em></a></li>
+                                <li><a asp-action="Index" asp-controller="Utilities" class="utilities">Utilities <em></em></a></li>
+                            }
+
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+        </header>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2025 - ProjectManagementSystem - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        <aside class="left-nav">
+            <nav>
+              @*   @await Component.InvokeAsync("Menu") *@
+            </nav>
+            <a href="javascript:void(0)" data-direction="left" class="slideNav"><span>Slide Navigation</span></a>
+        </aside>
+        <div class="modal fade" style="z-index:99999" id="myModelAlert" role="dialog"></div>
+       
+            @RenderBody()
+    
+       
+
+        @*Change Password modal pop up start*@
+        <div id="ChangePasswordModal" class="modal fade" role="dialog">
+            <div class="modal-dialog xs">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title pull-left" id="modalTitle"></h4>
+                        <div class="pull-right marT2i marR20 c-red">* Required Field</div>
+                    </div>
+                    <div id="_divChangePassword"></div>
+                </div>
+            </div>
         </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+        @*Change Password modal pop up end*@
+
+        @*Custom modal alert and Confirm Modal Pop Up*@
+        <div class="modal fade" tabindexrole="dialog" id="myModelAlert">
+            
+        </div>
+        @*End of Code*@
+    </section>
 </body>
 </html>
+
+<environment include="Development">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="~/js/AlertConfirm.js"></script>
+
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-ajax-unobtrusive@3.2.6/dist/jquery.unobtrusive-ajax.min.js"
+            integrity="sha256-PAC000yuHt78nszJ2RO0OiDMu/uLzPLRlYTk8J3AO10="
+            crossorigin="anonymous"></script>
+    <script src="~/js/jquery.plugins.js"></script>
+    <script src="~/js/custom.js"></script>
+    <script src="~/js/jquery.mask.js"></script>
+    <script src="~/js/Layout.js"></script>
+    <script src="~/js/THSComman.js"></script>
+    <link href="~/css/PaggingSorting.css" rel="stylesheet" />
+    <script src="~/js/CustomJqGrid/JqGridTable.js"></script>
+    <script src="~/js/HighChart/highcharts.js"></script>
+    <script src="~/js/HighChart/highcharts-more.js"></script>
+    <script src="~/js/HighChart/exporting.js"></script>
+</environment>
+<environment include="Production">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="~/js/AlertConfirm.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-ajax-unobtrusive@3.2.6/dist/jquery.unobtrusive-ajax.min.js"
+            integrity="sha256-PAC000yuHt78nszJ2RO0OiDMu/uLzPLRlYTk8J3AO10="
+            crossorigin="anonymous"></script>
+    <script src="~/js/jquery.plugins.js"></script>
+    <script src="~/js/custom.js"></script>
+    <script src="~/js/jquery.mask.js"></script>
+    <script src="~/js/Layout.js"></script>
+    <script src="~/js/THSComman.js"></script>
+    <link href="~/css/PaggingSorting.css" rel="stylesheet" />
+    <script src="~/js/CustomJqGrid/JqGridTable.js"></script>
+    <script src="~/js/HighChart/highcharts.js"></script>
+    <script src="~/js/HighChart/highcharts-more.js"></script>
+    <script src="~/js/HighChart/exporting.js"></script>
+
+</environment>
+
+

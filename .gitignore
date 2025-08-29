@@ -1,5 +1,84 @@
-﻿################################################################################
-# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
-################################################################################
+﻿## Ignore Visual Studio temporary files, build results, and user-generated files
+.vscode/
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
 
-/ProjectManagementSystem/bin/Debug/net8.0
+## Ignore build results
+bin/
+obj/
+out/
+[Bb]uild/
+[Bb]uild[Ll]og.*
+
+## Ignore published files
+wwwroot/lib/
+wwwroot/dist/
+publish/
+*.publish.xml
+
+## Ignore ASP.NET Core secrets
+secrets.json
+*.db
+*.db-shm
+*.db-wal
+
+## User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+## Logs
+*.log
+
+## OS generated files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+## Rider
+.idea/
+
+## Resharper
+_ReSharper*/
+*.DotSettings.user
+
+## Node modules
+node_modules/
+
+## NPM/Node output
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+## Package files
+*.nupkg
+*.snupkg
+packages/
+*.vsix
+
+## Dotnet tools
+.tools/
+
+## Others
+TestResults/
+*.coverage
+*.coveragexml
+
+# Auto-generated EF Core Migrations metadata
+Migrations/**/*Designer.cs
+Migrations/**/__EFMigrationsHistory
+
+# Docker
+docker-compose.override.yml
+
+
+.vs/
+obj/
+bin/
