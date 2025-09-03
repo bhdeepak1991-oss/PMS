@@ -1,0 +1,143 @@
+﻿
+@{
+    ViewData["Title"] = "PMS : Master";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="main noRequired">
+    <div class="row">
+        <div class="col-xs-4">
+            <fieldset class="fieldset">
+                <legend>Role Search</legend>
+                <div class="pad5">
+                    <div class="search-fieldset singleEle">
+                        <div>
+                            <label class="control-label">Role</label>
+                            <input type="search" value="" class="form-control"  id="txtNABPSearchMaster">
+                        </div>
+                        <div class="actions">
+                            <button onclick="master.fn_SerachMaster(1)" class="icon btn-search"></button>
+                            <button class="icon btn-clear" onclick="master.fn_ClearTextbox('txtNABPSearchMaster')"></button>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+
+        <div class="col-xs-4">
+            <fieldset class="fieldset">
+                <legend>Department Search</legend>
+                <div class="pad5">
+                    <div class="search-fieldset singleEle">
+                        <div>
+                            <label class="control-label">Department</label>
+                            <input type="search" value="" class="form-control" id="txtPlanSearchMaster">
+                        </div>
+                        <div class="actions">
+                            <button onclick="master.fn_SerachMaster(2)" class="icon btn-search"></button>
+                            <button class="icon btn-clear"  onclick="master.fn_ClearTextbox('txtPlanSearchMaster')"></button>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+
+        <div class="col-xs-4">
+            <fieldset class="fieldset">
+                <legend>Designation Search</legend>
+                <div class="pad5">
+                    <div class="search-fieldset singleEle">
+                        <div>
+                            <label class="control-label">Designation</label>
+                            <input type="search" value="" class="form-control" id="txtFormulaurySearchMaster">
+                        </div>
+                        <div class="actions">
+                            <button onclick="master.fn_SerachMaster(3)" class="icon btn-search"></button>
+                            <button class="icon btn-clear" onclick="master.fn_ClearTextbox('txtFormulaurySearchMaster')"></button>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+
+        <div class="col-xs-4">
+            <fieldset class="fieldset">
+                <legend>Priority Search</legend>
+                <div class="pad5">
+                    <div class="search-fieldset singleEle">
+                        <div>
+                            <label class="control-label">Priority List</label>
+                            <input type="search" value="" class="form-control" id="txtMacDrugSearchMaster">
+                        </div>
+                        <div class="actions">
+                            <button onclick="master.fn_SerachMaster(5)" class="icon btn-search"></button>
+                            <button class="icon btn-clear" onclick="master.fn_ClearTextbox('txtMacDrugSearchMaster')"></button>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+
+        <div class="col-xs-4">
+            <fieldset class="fieldset">
+                <legend>Status Search</legend>
+                <div class="pad5">
+                    <div class="search-fieldset singleEle">
+                        <div>
+                            <label class="control-label">Status List</label>
+                            <input type="search" value="" class="form-control" id="txtDrugListSearchMaster">
+                        </div>
+                        <div class="actions">
+                            <button onclick="master.fn_SerachMaster(6)" class="icon btn-search"></button>
+                            <button class="icon btn-clear" onclick="master.fn_ClearTextbox('txtDrugListSearchMaster')"></button>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+
+        <div class="col-xs-4">
+            <fieldset class="fieldset">
+                <legend>Employee Search</legend>
+                <div class="pad5">
+                    <div class="search-fieldset singleEle">
+                        <div>
+                            <label class="control-label">Employee</label>
+                            <input type="search" value="" class="form-control" id="txtDrugNdcSearchMaster">
+                        </div>
+                        <div class="actions">
+                            <button onclick="master.fn_SerachMaster(4)" class="icon btn-search"></button>
+                            <button class="icon btn-clear" onclick="master.fn_ClearTextbox('txtDrugNdcSearchMaster')"></button>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+
+        <div class="col-xs-4">
+            <fieldset class="fieldset">
+                <legend>Project Search</legend>
+                <div class="pad5">
+                    <div class="search-fieldset singleEle">
+                        <div>
+                            <label class="control-label">Project</label>
+                            <input type="search" value="" class="form-control" id="txtDrugNdcSearchMaster">
+                        </div>
+                        <div class="actions">
+                            <button onclick="master.fn_SerachMaster(4)" class="icon btn-search"></button>
+                            <button class="icon btn-clear" onclick="master.fn_ClearTextbox('txtDrugNdcSearchMaster')"></button>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+
+    </div>
+</section>
+
+<environment include="Production">
+    <script src="~/js/Master/Master.js"></script>
+</environment>
+<environment include="Development">
+    <script src="~/js/Master/Master.js"></script>
+</environment>
+ 

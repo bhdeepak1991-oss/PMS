@@ -1,4 +1,5 @@
 ﻿using ProjectManagementSystem.Features.Masters.Repositories;
+using ProjectManagementSystem.Features.Masters.Services;
 
 namespace ProjectManagementSystem.ServiceExtensions
 {
@@ -9,6 +10,13 @@ namespace ProjectManagementSystem.ServiceExtensions
             #region Repository Extension
 
             services.AddScoped<IRoleRepository, RoleRepository>();
+
+            #endregion
+
+
+            #region Service Extension
+
+            services.AddScoped<IRoleService, RoleService>();
 
             #endregion
 
