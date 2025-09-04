@@ -1,111 +1,40 @@
-﻿@using ProjectManagementSystem.Domain.Master
-@model ProjectManagementSystem.Helpers.ResponseHelper<IEnumerable<Role>>
-@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
-<section class="main utility noRequired">
-    <nav>
-        <div class="top-nav">
-            <div class="top-left" style="max-width:250px">
-                <ul>
-                    <li class="new">Role List</li>
-                </ul>
-            </div>
+﻿@model IEnumerable<ProjectManagementSystem.Domain.Master.Role>
 
-            <a onclick="fn_AddRole()" class="btn btn-default addBtnTop">Add Roles</a>
-        </div>
-    </nav>
-    <div class="row">
-        <div class="col-xs-12">
-            <div class="form-block marB10">
-                <div class="">
-                    <div class="inner-body noButton">
-                        <div class="row">
-                            <div class="col-xs-12" id="dvClaimPartial">
-                                <div class="row" id="divClaimList">
-                                    <div class="col-xs-12">
-                                        <div class="table-fixed-header has-v-scroll _done">
-                                            <div style="max-height:375px; min-height:10px;" class="scrollDiv" id="tblClient">
-                                                <table id="tblClientTable" class="table table-hover table-striped display" style="width:100%; min-width: 1000px;">
-                                                    <thead>
-                                                        <tr>
-                                                            <th style="width: 20%">Role Name</th>
-                                                            <th style="width: 12%">Role Code</th>
-                                                            <th style="width: 12%">Action</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        @foreach (var item in Model.Model)
-                                                        {
-                                                            <tr>
-                                                                <td>@item.Name</td>
-                                                                <td>@item.Code</td>
-                                                                <td>
-                                                                    <a href="/Role/Edit/@item.Id" class="btn btn-sm btn-primary">Edit</a>
-                                                                    <a onclick="fn_DeleteRole('@item.Id')" class="btn btn-sm btn-danger">Delete</a>
-                                                                </td>
-                                                            </tr>
-                                                        }
-                                                    </tbody>
-                                                </table>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+<div class="row">
+    <div class="col-xs-12">
+        <div class="form-block marB10">
+            <div class="">
+                <div class="inner-body noButton">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <table class="tbl table-responsive tblThBold table-bordered" style="width:100%" id="tblClientTable">
+                                <thead>
+                                    <tr>
+                                        <th>Role Name</th>
+                                        <th>Role Code</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var data in Model)
+                                    {
+                                        <tr>
+                                            <td>@data.Name</td>
+                                            <td>@data.Code</td>
+                                            <td>@data.IsActive</td>
+                                            <td>
+                                                <a class="btn btn-danger" onclick="fn_delete('@data.Id')">Delete</a>
+                                                <a class="btn btn-success" asp-action="Index" asp-controller="Role" asp-route-id="@data.Id">Edit</a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-
-    <div class="modal fade" id="PMSCommonModal" role="dialog" data-active="0" style="display: none;">
-        <div class="modal-dialog md" id="modalSize">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" onclick="client.fn_CloseCurrentModel('#tblClient')">&times;</button>
-                    <h4 class="modal-title" id="modalHeader">Add Role</h4>
-                </div>
-
-                <div class="modal-body">
-                    <div id="divPMSModal"></div>
-                </div>
-
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="client.fn_CloseCurrentModel('#tblClient')">Close</button>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-</section>
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.datatables.net/1.13.6/js/jquery.datatables.min.js"></script>
-
-
-<script>
-    $(document).ready(function () {
-        $('#tblClientTable').DataTable({
-            paging: true,
-            searching: true,
-            ordering: true,
-            responsive: true
-        });
-    });
-
-    function fn_AddRole(){
-            $("#PMSCommonModal").modal('show');
-    }
-</script>
-
-<environment include="Development">
-    <script src="~/js/Master/Client.js"></script>
-</environment>
-<environment include="Production">
-    <script src="~/js/Master/Client.js"></script>
-</environment>
+</div>

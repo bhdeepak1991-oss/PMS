@@ -63,7 +63,7 @@ namespace ProjectManagementSystem.Features.Masters.Repositories
         {
             var roleModels = await _dbContext.Roles.Where(x => x.IsDeleted == false).ToListAsync();
 
-            return MessageHelper.GetSuccessErrorMessage(true, roleModels, MessageTypeEnum.Fetched);
+            return MessageHelper.GetSuccessErrorMessage(true, roleModels.OrderBy(x=>x.Id).ToList(), MessageTypeEnum.Fetched);
         }
 
         public async Task<(string message, bool isSuccess, Role model)> UpdateRole(Role model, CancellationToken cancellationToken = default)

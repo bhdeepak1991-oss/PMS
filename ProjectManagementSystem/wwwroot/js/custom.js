@@ -35,6 +35,20 @@ $(document).ready(function () {
     }); 
 
 });
+
+
+function onBegin() {
+    $("#_divClaimList").addClass('ajaxLoading');
+}
+
+function onSuccess(response) {
+    $("#_divClaimList").removeClass('ajaxLoading');
+    if (response.isSuccess) {
+        showToast(response.message, "success");
+    }
+    showToast(response.message, "error");
+    $("#_divClaimList").removeClass('ajaxLoading');
+}
 function enterFunctinality() {
     //Enter Key Press Functionality for Search Button
     $(document).keydown(function (e) {
@@ -100,6 +114,51 @@ function enterFunctinality() {
             }
         }
     });
+}
+
+function showToast(message, type = "success") {
+    const container = document.getElementById("toast-container");
+    $("#_divClaimList").removeClass('ajaxLoading');
+    const toast = document.createElement("div");
+    toast.className = `toast toast-${type}`;
+    toast.style.cssText = `
+            background: ${type === "success" ? "#28a745" : "#dc3545"};
+            color: white;
+            padding: 10px 20px;
+            margin-top: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            opacity: 0;
+            transform: translateX(100%);
+            transition: all 0.5s ease;
+        `;
+    toast.innerText = message;
+
+    container.appendChild(toast);
+
+    // animate in
+    setTimeout(() => {
+        toast.style.opacity = "1";
+        toast.style.transform = "translateX(0)";
+    }, 100);
+
+    // auto-remove after 3s
+    setTimeout(() => {
+        toast.style.opacity = "0";
+        toast.style.transform = "translateX(100%)";
+        setTimeout(() => toast.remove(), 500);
+    }, 3000);
+}
+
+// Hook into unobtrusive ajax lifecycle
+function onSuccess(response) {
+    console.log("AJAX success", response);
+    showToast("Role created successfully!", "success");
+}
+
+function onError(xhr, status, error) {
+    console.error("AJAX error", error);
+    showToast("Something went wrong. Please try again.", "error");
 }
 
 /* detect and return Internet Explorer version */

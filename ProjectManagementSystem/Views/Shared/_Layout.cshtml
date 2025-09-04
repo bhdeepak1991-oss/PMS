@@ -1,27 +1,4 @@
-﻿@* @using Microsoft.AspNetCore.Http
-@using THS.Comman
-@inject IHttpContextAccessor HttpContextAccessor
-@{
-    var identity = HttpContextAccessor.HttpContext.User.Identities;
-    var userDetail = string.Empty;
-    identity.First().Claims.ToList().ForEach(x =>
-    {
-        userDetail = x.Value;
-    });
-    var objectJson = HttpContextAccessor.HttpContext.Session.ObjectFromSession<List<THS.Core.Entities.UserManagement.UserAccessRight>>("userAccess");
-    var isDisplayUserManagement = false;
-    var isDashboardAccess = false;
-    if(objectJson.Any(x=>x.ControllerName.ToLower().Trim()== "userdetail"))
-    {
-        isDisplayUserManagement = true;
-    }
-    //check is user has access Dashboard
-    if(objectJson.Any(x=>x.ControllerName.ToLower().Trim()=="dashboard"))
-    {
-        isDashboardAccess = true;
-    }
-} *@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -50,13 +27,6 @@
                             <img src="~/images/PharmacyLogo.png" />
                         </a>
                     }
-                    else
-                    {
-                        <a href="#">
-                            <img src="~/images/PharmacyLogo.png" />
-                        </a>
-                    }
-
                 </figure>
                 <nav class="main-nav">
                     <label class="nav-item">
@@ -100,6 +70,9 @@
             </nav>
             <a href="javascript:void(0)" data-direction="left" class="slideNav"><span>Slide Navigation</span></a>
         </aside>
+
+        <div id="toast-container" style="position: fixed; top: 20px; right: 20px; z-index: 9999;"></div>
+
         <div class="modal fade" style="z-index:99999" id="myModelAlert" role="dialog"></div>
        
             @RenderBody()

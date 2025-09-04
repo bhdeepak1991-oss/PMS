@@ -1,0 +1,107 @@
+﻿@using ProjectManagementSystem.Domain.Master
+@model ProjectManagementSystem.Domain.Master.Role
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="main utility noRequired">
+    <nav>
+        <div class="top-nav">
+            <div class="top-left" style="max-width:250px">
+                <ul>
+                    <li class="new">Role List</li>
+                </ul>
+            </div>
+
+            <a onclick="fn_AddRole()" class="btn btn-default addBtnTop">Role List</a>
+        </div>
+    </nav>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="form-block marB10">
+                <div class="">
+                    <div class="inner-body noButton">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <form asp-action="CreateRole" data-ajax="true" data-ajax-begin="onBegin"
+                                      data-ajax-success="onSuccess"
+                                      asp-controller="Role" method="post">
+                                    <div class="row" id="_divClaimList">
+                                        <div class="col-xs-4">
+                                            <input type="hidden" asp-for="Id" />
+                                            <label>Role Name :</label>
+                                            <input asp-for="Name" class="form-control" />
+                                        </div>
+
+                                        <div class="col-xs-4">
+                                            <label>Role Code :</label>
+                                            <input asp-for="Code" class="form-control" />
+
+                                        </div>
+
+                                        <div class="col-xs-12">
+                                            <button class="btn btn-success pull-right" type="submit">Save</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="PMSCommonModal" role="dialog" data-active="0" style="display: none;">
+            <div class="modal-dialog md" id="modalSize">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" onclick="client.fn_CloseCurrentModel('#tblClient')">&times;</button>
+                        <h4 class="modal-title" id="modalHeader">Role List</h4>
+                    </div>
+
+                    <div class="modal-body">
+                        <div id="divPMSModal"></div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="client.fn_CloseCurrentModel('#tblClient')">Close</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</section>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" />
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
+<script>
+    function fn_AddRole(){
+        $.get('/Role/GetRoleList', function(resp){
+                $("#divPMSModal").html(resp);
+                $("#PMSCommonModal").modal('show');
+                $('#tblClientTable').DataTable({
+                paging: true,
+                searching: true,
+                ordering: true,
+                responsive: true
+                });
+        });
+
+        function fn_delete(id){
+           if(confirm("Are you sure want to delete the records ?")){
+               
+           }
+        }
+    }
+</script>
+
+@* <environment include="Development">
+    <script src="~/js/Master/Client.js"></script>
+</environment>
+<environment include="Production">
+    <script src="~/js/Master/Client.js"></script>
+</environment> *@

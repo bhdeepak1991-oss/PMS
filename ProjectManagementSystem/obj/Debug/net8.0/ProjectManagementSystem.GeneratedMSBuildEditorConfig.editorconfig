@@ -32,6 +32,10 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcTWFzdGVyc1xWaWV3c1xNYXN0ZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/PMS/ProjectManagementSystem/Features/Masters/Views/RoleCreate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcTWFzdGVyc1xWaWV3c1xSb2xlQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/PMS/ProjectManagementSystem/Features/Masters/Views/RoleList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcTWFzdGVyc1xWaWV3c1xSb2xlTGlzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -68,12 +72,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/PMS/ProjectManagementSystem/Views/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+[D:/PMS/ProjectManagementSystem/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = X1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/PMS/ProjectManagementSystem/Views/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+[D:/PMS/ProjectManagementSystem/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = X1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/PMS/ProjectManagementSystem/Views/Shared/_Layout.cshtml]
