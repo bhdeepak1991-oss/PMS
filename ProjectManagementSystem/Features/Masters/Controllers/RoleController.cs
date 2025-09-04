@@ -42,7 +42,7 @@ namespace ProjectManagementSystem.Features.Masters.Controllers
             return PartialView("~/Features/Masters/Views/RoleList.cshtml", response.Model);
         }
 
-        [HttpDelete]
+        [HttpGet]
         public async Task<IActionResult> DeleteRole(int roleId)
         {
             var response = await _roleService.DeleteRole(roleId, default);

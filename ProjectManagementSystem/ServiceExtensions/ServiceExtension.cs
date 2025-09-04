@@ -10,6 +10,7 @@ namespace ProjectManagementSystem.ServiceExtensions
             #region Repository Extension
 
             services.AddScoped<IRoleRepository, RoleRepository>();
+            services.AddScoped<IDepartmentRepository, DepartmentRepository>();
 
             #endregion
 
@@ -17,6 +18,7 @@ namespace ProjectManagementSystem.ServiceExtensions
             #region Service Extension
 
             services.AddScoped<IRoleService, RoleService>();
+            services.AddScoped<IDepartmentService, DepartmentService>();
 
             #endregion
 

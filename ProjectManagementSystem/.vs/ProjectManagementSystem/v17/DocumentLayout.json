@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "D:\\PMS\\ProjectManagementSystem\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{37529312-CF0A-4878-8F5E-955CC3E4EB9E}|ProjectManagementSystem.csproj|d:\\pms\\projectmanagementsystem\\features\\masters\\repositories\\rolerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{37529312-CF0A-4878-8F5E-955CC3E4EB9E}|ProjectManagementSystem.csproj|solutionrelative:features\\masters\\repositories\\rolerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{37529312-CF0A-4878-8F5E-955CC3E4EB9E}|ProjectManagementSystem.csproj|d:\\pms\\projectmanagementsystem\\features\\masters\\views\\rolelist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{37529312-CF0A-4878-8F5E-955CC3E4EB9E}|ProjectManagementSystem.csproj|solutionrelative:features\\masters\\views\\rolelist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{37529312-CF0A-4878-8F5E-955CC3E4EB9E}|ProjectManagementSystem.csproj|d:\\pms\\projectmanagementsystem\\features\\masters\\controllers\\rolecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -15,8 +15,12 @@
       "RelativeMoniker": "D:0:0:{37529312-CF0A-4878-8F5E-955CC3E4EB9E}|ProjectManagementSystem.csproj|solutionrelative:features\\masters\\views\\rolecreate.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{37529312-CF0A-4878-8F5E-955CC3E4EB9E}|ProjectManagementSystem.csproj|d:\\pms\\projectmanagementsystem\\features\\masters\\views\\rolelist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{37529312-CF0A-4878-8F5E-955CC3E4EB9E}|ProjectManagementSystem.csproj|solutionrelative:features\\masters\\views\\rolelist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{37529312-CF0A-4878-8F5E-955CC3E4EB9E}|ProjectManagementSystem.csproj|d:\\pms\\projectmanagementsystem\\wwwroot\\js\\custom.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{37529312-CF0A-4878-8F5E-955CC3E4EB9E}|ProjectManagementSystem.csproj|solutionrelative:wwwroot\\js\\custom.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{37529312-CF0A-4878-8F5E-955CC3E4EB9E}|ProjectManagementSystem.csproj|d:\\pms\\projectmanagementsystem\\features\\masters\\repositories\\rolerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{37529312-CF0A-4878-8F5E-955CC3E4EB9E}|ProjectManagementSystem.csproj|solutionrelative:features\\masters\\repositories\\rolerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,11 +30,23 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
+              "Title": "custom.js",
+              "DocumentMoniker": "D:\\PMS\\ProjectManagementSystem\\wwwroot\\js\\custom.js",
+              "RelativeDocumentMoniker": "wwwroot\\js\\custom.js",
+              "ToolTip": "D:\\PMS\\ProjectManagementSystem\\wwwroot\\js\\custom.js",
+              "RelativeToolTip": "wwwroot\\js\\custom.js",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAAC4AAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-09-04T06:01:43.655Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "RoleRepository.cs",
               "DocumentMoniker": "D:\\PMS\\ProjectManagementSystem\\Features\\Masters\\Repositories\\RoleRepository.cs",
               "RelativeDocumentMoniker": "Features\\Masters\\Repositories\\RoleRepository.cs",
@@ -38,8 +54,7 @@
               "RelativeToolTip": "Features\\Masters\\Repositories\\RoleRepository.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAAgwD8AAABjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-04T05:50:08.293Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-04T05:50:08.293Z"
             },
             {
               "$type": "Document",
@@ -49,20 +64,19 @@
               "RelativeDocumentMoniker": "Features\\Masters\\Views\\RoleCreate.cshtml",
               "ToolTip": "D:\\PMS\\ProjectManagementSystem\\Features\\Masters\\Views\\RoleCreate.cshtml",
               "RelativeToolTip": "Features\\Masters\\Views\\RoleCreate.cshtml",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAAB0AAABQAAAAAAAAAA==",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAAAFEAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-04T05:33:13.598Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-04T05:33:13.598Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "RoleList.cshtml",
               "DocumentMoniker": "D:\\PMS\\ProjectManagementSystem\\Features\\Masters\\Views\\RoleList.cshtml",
               "RelativeDocumentMoniker": "Features\\Masters\\Views\\RoleList.cshtml",
               "ToolTip": "D:\\PMS\\ProjectManagementSystem\\Features\\Masters\\Views\\RoleList.cshtml",
               "RelativeToolTip": "Features\\Masters\\Views\\RoleList.cshtml",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAABsAAACKAAAAAAAAAA==",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAACIAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-09-04T05:32:26.69Z",
               "EditorCaption": ""
@@ -75,10 +89,9 @@
               "RelativeDocumentMoniker": "Features\\Masters\\Controllers\\RoleController.cs",
               "ToolTip": "D:\\PMS\\ProjectManagementSystem\\Features\\Masters\\Controllers\\RoleController.cs",
               "RelativeToolTip": "Features\\Masters\\Controllers\\RoleController.cs",
-              "ViewState": "AgIAACAAAAAAAAAAAAAkwCgAAAAzAAAAAAAAAA==",
+              "ViewState": "AgIAACAAAAAAAAAAAAAkwC0AAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-04T05:14:37.854Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-04T05:14:37.854Z"
             }
           ]
         }
