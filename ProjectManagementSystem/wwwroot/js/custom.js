@@ -153,7 +153,7 @@ function showToast(message, type = "success") {
 // Hook into unobtrusive ajax lifecycle
 function onSuccess(response) {
     console.log("AJAX success", response);
-    showToast("Role created successfully!", "success");
+    showToast(response.Message, "success");
 }
 
 function onError(xhr, status, error) {

@@ -1,5 +1,5 @@
 ﻿@using ProjectManagementSystem.Domain.Master
-@model ProjectManagementSystem.Domain.Master.Department
+@model ProjectManagementSystem.Helpers.ResponseHelper<Department>
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -12,7 +12,7 @@
                 </ul>
             </div>
 
-            <a onclick="fn_AddRole()" class="btn btn-default addBtnTop">Department List</a>
+            <a onclick="fn_Departments()" class="btn btn-default addBtnTop">Department List</a>
         </div>
     </nav>
     <div class="row">
@@ -27,14 +27,14 @@
                                       asp-controller="Department" method="post">
                                     <div class="row" id="_divClaimList">
                                         <div class="col-xs-4">
-                                            <input type="hidden" asp-for="Id" />
+                                            <input type="hidden" asp-for="Model.Id" />
                                             <label>Department Name :</label>
-                                            <input asp-for="Name" class="form-control" />
+                                            <input asp-for="Model.Name" class="form-control" />
                                         </div>
 
                                         <div class="col-xs-4">
                                             <label>Department Code :</label>
-                                            <input asp-for="Code" class="form-control" />
+                                            <input asp-for="Model.Code" class="form-control" />
 
                                         </div>
 
@@ -79,7 +79,7 @@
 <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
 
 <script>
-    function fn_AddRole(){
+    function fn_Departments(){
         $.get('/Department/GetDepartmentList', function(resp){
                 $("#divPMSModal").html(resp);
                 $("#PMSCommonModal").modal('show');

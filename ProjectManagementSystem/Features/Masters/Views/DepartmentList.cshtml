@@ -1,4 +1,5 @@
-﻿@model IEnumerable<ProjectManagementSystem.Domain.Master.Department>
+﻿@using ProjectManagementSystem.Domain.Master
+@model ProjectManagementSystem.Helpers.ResponseHelper<IEnumerable<Department>>
 
 <div class="row">
     <div class="col-xs-12">
@@ -17,7 +18,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach (var data in Model)
+                                    @foreach (var data in Model.Model)
                                     {
                                         <tr>
                                             <td>@data.Name</td>
@@ -34,7 +35,7 @@
                                             </td>
                                             <td>
                                                 <a class="btn btn-danger" onclick="fn_delete('@data.Id')">Delete</a>
-                                                <a class="btn btn-success" asp-action="Index" asp-controller="Department" asp-route-id="@data.Id">Edit</a>
+                                                <a class="btn btn-success" asp-action="Index" asp-controller="Department" asp-route-deptId="@data.Id">Edit</a>
                                             </td>
                                         </tr>
                                     }

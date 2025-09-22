@@ -1,12 +1,15 @@
 using Microsoft.EntityFrameworkCore;
 using ProjectManagementSystem.Domain;
+using ProjectManagementSystem.Middlewares;
 using ProjectManagementSystem.ServiceExtensions;
 using System;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews(options => {
+    options.Filters.Add<ExceptionMiddleware>();
+});
 
 builder.Services.AddDbContext<PmsContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));

@@ -27,6 +27,6 @@ namespace ProjectManagementSystem.Features.Masters.Services
                 => await _departmentRepository.GetDepartmentList(cancellationToken);
 
         public async Task<ResponseHelper<Department>> UpdateDepartment(Department model, CancellationToken cancellationToken)
-          => await UpdateDepartment(model, cancellationToken);
+          => await _departmentRepository.UpdateDepartment(model, cancellationToken);
     }
 }
